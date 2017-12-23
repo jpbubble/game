@@ -26,13 +26,14 @@ mkl.Lic    ("Bubble Game Engine - Imports - resource_darwin.go","Mozilla Public 
   if err!=nil { panic("Error when getting exe") }
   dirsplit:=strings.Split(trueapp,"/")
   appexe=""
-  for i:=0;i<len(dirsplit);i++ {
+  for i:=0;i<len(dirsplit)-3;i++ {
     if appexe!="" { appexe+="/" }
     appexe+=dirsplit[i]
     }
-  appdir=path.Dir(appexe)
-  resdir=appexe+"/Contents/Resources"
+  appdir="/"+path.Dir(appexe)
+  resdir="/"+appexe+"/Contents/Resources"
   resfile=resdir+qstr.StripAll(appexe)+".jcr"
+  appexe="/"+appexe
   if darwininitdebugchat {
      log.Print("Appdir:"+appdir)
      log.Print("AppExe:"+appexe)
