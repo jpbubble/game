@@ -5,6 +5,7 @@ import "path"
 import "trickyunits/mkl"
 import "trickyunits/qstr"
 import "log"
+import "strings"
 
 const darwininitdebugchat = true
 
