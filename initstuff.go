@@ -13,6 +13,7 @@ package bubblegame
 import (
 	"trickyunits/mkl"
 	"trickyunits/qff"
+	"trickyunits/jcr6main"
 	"github.com/veandco/go-sdl2/sdl"
 	"fmt"
 	)
@@ -76,4 +77,12 @@ func pi_error(errormsg string){
 // Please note that on Mac this file must be located inside the application bundle's Resources folder (mac users expect this).
 func InitBubble(){
 	if !qff.Exists(resfile) { pi_error("I could not find "+resfile) }
+	r:=jcr6main.Recognize(resfile)
+	switch r {
+		case "NONE":
+			pi_error("Unrecognized resource: "+resfile)
+		case "WAD":
+			pi_error("Are you crazy? Using a WAD file for this game? Well if you want... I don't advice you to, due to the 8 char entry name restriction. It makes looking for the required ID files already impossible :P")
+		}
+	
 }
