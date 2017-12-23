@@ -12,3 +12,8 @@ package bubblegame
 
 
 var appdir,appexe,resdir,resfile string
+
+
+// This must be set prior it initizing.
+// This string will be used to check the data in the ID/Identify.gini file
+var EngineName string
