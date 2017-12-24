@@ -18,6 +18,7 @@ import (
 	"github.com/jpbubble/Base"
 	"github.com/veandco/go-sdl2/ttf"
 	"github.com/veandco/go-sdl2/sdl"
+	"github.com/Shopify/go-lua"
 	)
 	
 func bubbleconsole_bc_write(color,txt string) {
@@ -71,8 +72,40 @@ func setupConsole() {
 }
 
 
+// Lua API
+func lapi_Write(l *lua.State) int {
+	txt:=lua.CheckString(l,1)
+	r:=lua.OptInteger(l,2,255)
+	g:=lua.OptInteger(l,3,255)
+	b:=lua.OptInteger(l,4,255)
+	tricon.Write(txt,uint8(r),uint8(g),uint8(b))
+	return 0
+}
+
+func lapi_WriteLn(l *lua.State) int {
+	txt:=lua.CheckString(l,1)
+	r:=lua.OptInteger(l,2,255)
+	g:=lua.OptInteger(l,3,255)
+	b:=lua.OptInteger(l,4,255)
+	tricon.WriteLn(txt,uint8(r),uint8(g),uint8(b))
+	return 0
+}
+
+func lapi_CSay(l *lua.State) int {
+	tricon.CSay(lua.CheckString(l,1))
+	return 0
+}
+
+func lapi_CShow(l *lua.State) int {
+	tricon.Show()
+	return 0
+}
+
 func init(){
 mkl.Version("Bubble Game Engine - Imports - console.go","17.12.24")
 mkl.Lic    ("Bubble Game Engine - Imports - console.go","Mozilla Public License 2.0")
-
+LuaReg("CWrite",lapi_Write)
+LuaReg("CWriteLn",lapi_WriteLn)
+LuaReg("CSay",lapi_CSay) // And the CSay tradition lives on :P
+LuaReg("CShow",lapi_CShow)
 }
