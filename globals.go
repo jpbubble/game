@@ -34,6 +34,6 @@ var ini gini.TGINI
 
 
 func init(){
-	mkl.Version("","")
-	mkl.Lic("","")
+mkl.Version("Bubble Game Engine - Imports - globals.go","17.12.24")
+mkl.Lic    ("Bubble Game Engine - Imports - globals.go","Mozilla Public License 2.0")
 }
