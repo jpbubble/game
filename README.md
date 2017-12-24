@@ -18,4 +18,4 @@ Why this setup?
 - veandco's SDL2 libraries for Go -- https://github.com/veandco/go-sdl2
 - The libs deemed optional in the documentation of SDL are NOT optional as far as Bubble is concerned!!!
 - Shopify's Lua engine -- https://github.com/Shopify/go-lua
-
+- The jpbubble/Base library
