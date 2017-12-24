@@ -61,6 +61,7 @@ func setupConsole() {
 	if !jcr6main.HasEntry(jcr,"Console/Font.ttf") { pi_error("I don't have Console/Font.ttf") }
 	bfont:=jcr6main.JCR_B(jcr,"Console/Font.ttf") 
 	rfont:=sdl.RWFromMem(unsafe.Pointer(&bfont[0]), len(bfont))
+	defer rfont.FreeRW()
 	tfont,err:=ttf.OpenFontRW(rfont, 0, 14) 
 	if err!=nil { pi_error("Error loading console font\n\n"+err.Error()) }
 	cfont=tfont
