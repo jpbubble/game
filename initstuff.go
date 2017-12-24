@@ -14,6 +14,7 @@ import (
 	"trickyunits/mkl"
 	"trickyunits/qff"
 	"trickyunits/gini"
+	"trickyunits/tricon"
 	"trickyunits/jcr6/jcr6main"
 	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/ttf"
@@ -113,5 +114,19 @@ func InitBubble(){
 	win_h,err = strconv.ParseInt(ini.C("Height"),0,32); if err!=nil { pi_error("Error getting desired window height\n\n"+err.Error()) }
 	startWindow()
 	// Parse Debug Console
+	tr,tg,tb:=int64(0),int64(0),int64(0)
+	if ini.C("CONSOLE.BCK.R")!="" { tr,err = strconv.ParseInt(ini.C("CONSOLE.BCK.R"),0,16); if err!=nil { pi_error("Error getting desired console back red value\n\n"+err.Error())   }}
+	if ini.C("CONSOLE.BCK.G")!="" { tg,err = strconv.ParseInt(ini.C("CONSOLE.BCK.G"),0,16); if err!=nil { pi_error("Error getting desired console back green value\n\n"+err.Error()) }}
+	if ini.C("CONSOLE.BCK.B")!="" { tb,err = strconv.ParseInt(ini.C("CONSOLE.BCK.B"),0,16); if err!=nil { pi_error("Error getting desired console back blue value\n\n"+err.Error())  }}
+	tricon.BR=uint8(tr)
+	tricon.BG=uint8(tg)
+	tricon.BB=uint8(tb)
+	tr,tg,tb=255,255,255
+	if ini.C("CONSOLE.CMD.R")!="" { tr,err = strconv.ParseInt(ini.C("CONSOLE.CMD.R"),0,16); if err!=nil { pi_error("Error getting desired console command red value\n\n"+err.Error())   }}
+	if ini.C("CONSOLE.CMD.G")!="" { tg,err = strconv.ParseInt(ini.C("CONSOLE.CMD.G"),0,16); if err!=nil { pi_error("Error getting desired console command green value\n\n"+err.Error()) }}
+	if ini.C("CONSOLE.CMD.B")!="" { tb,err = strconv.ParseInt(ini.C("CONSOLE.CMD.B"),0,16); if err!=nil { pi_error("Error getting desired console command blue value\n\n"+err.Error())  }}
+	tricon.CR=uint8(tr)
+	tricon.CG=uint8(tg)
+	tricon.CB=uint8(tb)
 	setupConsole()
 }
