@@ -17,7 +17,7 @@ import "trickyunits/qstr"
 import "log"
 import "strings"
 
-const darwininitdebugchat = true
+const darwininitdebugchat = false
 
 func init(){
 mkl.Version("Bubble Game Engine - Imports - resource_darwin.go","17.12.24")
@@ -32,7 +32,7 @@ mkl.Lic    ("Bubble Game Engine - Imports - resource_darwin.go","Mozilla Public 
     }
   appdir="/"+path.Dir(appexe)
   resdir="/"+appexe+"/Contents/Resources"
-  resfile=resdir+qstr.StripAll(appexe)+".jcr"
+  resfile=resdir+"/"+qstr.StripAll(appexe)+".jcr"
   appexe="/"+appexe
   if darwininitdebugchat {
      log.Print("Appdir:"+appdir)

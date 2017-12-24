@@ -13,7 +13,8 @@ package bubblegame
 import (
 	"trickyunits/mkl"
 	"trickyunits/qff"
-	"trickyunits/jcr6main"
+	"trickyunits/gini"
+	"trickyunits/jcr6/jcr6main"
 	"github.com/veandco/go-sdl2/sdl"
 	"fmt"
 	)
@@ -76,6 +77,7 @@ func pi_error(errormsg string){
 // but it must be named the same as the executable file running it with it's regular extension replaced with .jcr
 // Please note that on Mac this file must be located inside the application bundle's Resources folder (mac users expect this).
 func InitBubble(){
+	// Check for resource
 	if !qff.Exists(resfile) { pi_error("I could not find "+resfile) }
 	r:=jcr6main.Recognize(resfile)
 	switch r {
@@ -84,5 +86,15 @@ func InitBubble(){
 		case "WAD":
 			pi_error("Are you crazy? Using a WAD file for this game? Well if you want... I don't advice you to, due to the 8 char entry name restriction. It makes looking for the required ID files already impossible :P")
 		}
-	
+	// Read resource
+	jcr=jcr6main.Dir(resfile)
+	if jcr6main.JCR6Error!="" { pi_error(jcr6main.JCR6Error) }
+	// Check id and load it
+	if !jcr6main.HasEntry(jcr,"ID/Identify.gini") { pi_error("Resource has no identify data") }
+	giniload := jcr6main.JCR_B(jcr,"ID/Identify.gini")
+	ini = gini.ParseBytes(giniload)
+	// Let's check the data for engine correctness and version requirments
+	if ini.C("ENGINE")=="" { pi_error("No engine data present") }
+	if EngineName=="" { pi_error("Hey! I need to have the name of the engine itself, but the programmer didn't give me that.... STOOOOPID!") }
+	if ini.C("ENGINE")!=EngineName { pi_error("Sorry, but this resource was written for the "+ini.C("ENGINE")+" engine, and this is the "+EngineName+" engine, so this resource is useless for me!") }
 }
