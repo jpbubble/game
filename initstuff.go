@@ -16,6 +16,8 @@ import (
 	"trickyunits/gini"
 	"trickyunits/jcr6/jcr6main"
 	"github.com/veandco/go-sdl2/sdl"
+	"github.com/veandco/go-sdl2/ttf"
+	"strconv"
 	"fmt"
 	)
 	
@@ -77,6 +79,14 @@ func pi_error(errormsg string){
 // but it must be named the same as the executable file running it with it's regular extension replaced with .jcr
 // Please note that on Mac this file must be located inside the application bundle's Resources folder (mac users expect this).
 func InitBubble(){
+	var err error
+	// Init the SDL routines
+	err = sdl.Init(sdl.INIT_EVERYTHING)
+	if err!=nil { pi_error("Could not init SDL\n\n"+err.Error()) }
+	BDEFER(sdl.Quit)
+	err = ttf.Init()
+	if err!=nil { pi_error("Could not init SDL font library\n\n"+err.Error()) }
+	BDEFER(ttf.Quit)
 	// Check for resource
 	if !qff.Exists(resfile) { pi_error("I could not find "+resfile) }
 	r:=jcr6main.Recognize(resfile)
@@ -97,4 +107,11 @@ func InitBubble(){
 	if ini.C("ENGINE")=="" { pi_error("No engine data present") }
 	if EngineName=="" { pi_error("Hey! I need to have the name of the engine itself, but the programmer didn't give me that.... STOOOOPID!") }
 	if ini.C("ENGINE")!=EngineName { pi_error("Sorry, but this resource was written for the "+ini.C("ENGINE")+" engine, and this is the "+EngineName+" engine, so this resource is useless for me!") }
+	// Parse Window 
+	if ini.C("TITLE")=="" { win_title=EngineName+" project" } else { win_title=ini.C("TITLE") }
+	win_w,err = strconv.ParseInt(ini.C("Width") ,0,32); if err!=nil  { pi_error("Error getting desired window width\n\n" +err.Error()) }
+	win_h,err = strconv.ParseInt(ini.C("Height"),0,32); if err!=nil { pi_error("Error getting desired window height\n\n"+err.Error()) }
+	startWindow()
+	// Parse Debug Console
+	setupConsole()
 }
