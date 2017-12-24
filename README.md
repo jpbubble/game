@@ -19,3 +19,11 @@ Why this setup?
 - The libs deemed optional in the documentation of SDL are NOT optional as far as Bubble is concerned!!!
 - Shopify's Lua engine -- https://github.com/Shopify/go-lua
 - The jpbubble/Base library
+
+
+# Note
+
+This stuff is still in development.
+Expect it to be buggy and unusable as long as this note is here.
+Stuff may appear and disappear randomly without deprecation notes.
+When this stuff is 'stable enough to use' I'll remove this notice. ;)
