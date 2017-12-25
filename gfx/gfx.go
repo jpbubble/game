@@ -141,6 +141,10 @@ func (pic *MyPic) Draw(x,y int32, frame int) error {
 	return nil
 }
 
+func (pic *MyPic) Frames() int {
+	return len(pic.indpic)
+}
+
 // Fress the memory from everything taken up by this image.
 func (pic *MyPic) Kill() {
 	for _,idp:=range pic.indpic {

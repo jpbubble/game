@@ -16,6 +16,7 @@ import (
 	"trickyunits/gini"
 	"trickyunits/tricon"
 	"trickyunits/jcr6/jcr6main"
+	"github.com/jpbubble/Base"
 	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/ttf"
 	"strconv"
@@ -129,4 +130,11 @@ func InitBubble(){
 	tricon.CG=uint8(tg)
 	tricon.CB=uint8(tb)
 	setupConsole()
+	// Flow mode
+	if ini.C("FLOW.MODE")!="" {
+		flowmode = ini.C("FLOW.MODE")
+		if flowmode!="Static" && flowmode!="Cyclic" && flowmode!="CallBack" { bubble.Fatal("Unknown flowmode: "+flowmode) }
+	}
+	// Init flow specific apis now
+	gfxAPIinit()
 }

@@ -78,3 +78,9 @@ func Col(name string) (r,g,b uint8) {
 		return 255,255,255
 	}
 }
+
+
+// Flowmode
+var flowmode = "Static"
+
+
