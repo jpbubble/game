@@ -90,3 +90,7 @@ var startscript "Script/Main.lua"
 
 
 var startvmscript = map[string]string{}
+
+
+// Sysvars
+var endflow = false // Used in Cyclic and CallBack. Will end the flow as soon as this is set "true" by the script commands.

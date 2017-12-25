@@ -5,6 +5,31 @@ Engines using this module have the next commands added to Lua.
 lua uses).
 
 
+## System
+
+These are system based commands.
+
+### Crash([exitcode=0])
+
+- Exits bubble immediately causing an exit code for the underlying OS
+- When you need an immediately shutdown you should always use Crash and never os.exit(). os.exit() has not regard for anything that needs to be unloaded before the system can safely be shutdown, and this can cause memory leaks. Crash will however do all needed unloading stuff.
+
+### EndFlow()
+
+- As soon as the end of the current cycle is reached bubble will exit.
+- Contrary to Crash, EndFlow will not terminate the program immediately. The current flow will be completed and after that it ends and not sooner.
+- Since "Static" does not work in flows this command is not available in Static mode.
+
+
+### EngineVersion()
+
+- Returns the current engine version number.
+
+### Identify(key)
+
+- Returns the value of an identify.gini variable.
+- Yes! These are read-only!
+
 
 ## Images/Graphics
 

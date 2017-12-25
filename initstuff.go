@@ -137,6 +137,7 @@ func InitBubble(){
 	}
 	// Init flow specific apis now
 	gfxAPIinit()
+	initSysLib()
 	// Start with script settings
 	if ini.C("START.VM")!=""     { startvm     = ini.C("START.VM") }
 	if ini.C("START.SCRIPT")!="" { startscript = ini.C("START.SCRIPT") }
