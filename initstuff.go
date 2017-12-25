@@ -142,6 +142,7 @@ func InitBubble(){
 	if ini.C("START.VM")!=""     { startvm     = ini.C("START.VM") }
 	if ini.C("START.SCRIPT")!="" { startscript = ini.C("START.SCRIPT") }
 	if flowmode=="Static" && startvm!="MAIN" { bubble.Fatal("Multiscripting not supported in static mode. START.VM should therefore be defined as 'MAIN' only or not be defined at all") }
+	currentflow=startvm
 	// Load the starting script
 	bubble.CreateBubble("startvm")
 	bubble.TextScript(startvm,startvmscript[flowmode],"internal:"+flowmode)
