@@ -14,11 +14,13 @@ package bubblegame
 
 import(
 	"trickyunits/mkl"
+	"github.com/jpbubble/Base"
 )
 
 func init(){
 mkl.Version("Bubble Game Engine - Imports - flow.go","17.12.25")
 mkl.Lic    ("Bubble Game Engine - Imports - flow.go","Mozilla Public License 2.0")
+}
 
 func Run(){
 	switch flowmode {
@@ -26,6 +28,5 @@ func Run(){
 			flowStatic()
 		default:
 			bubble.Fatal("Internal error! Unknown flow mode: "+flowmode) // As the flowmode was already checked before this should not be possible to happen, that's why it's deemed an internal error. Proof that there is a bug!
-		}
 	}
 }

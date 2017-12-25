@@ -14,10 +14,11 @@ package bubblegame
 
 import (
 	"trickyunits/mkl"
+	"github.com/jpbubble/Base"
 )
 
 func init(){
-	startvmscript['Static'] = "function bubble_init() end\n\nfunction bubble_main Crash(\"There is no bubble_main function in this script\")\nend"
+	startvmscript["Static"] = "function bubble_init() end\n\nfunction bubble_main Crash(\"There is no bubble_main function in this script\")\nend"
 mkl.Version("Bubble Game Engine - Imports - flow-static.go","17.12.25")
 mkl.Lic    ("Bubble Game Engine - Imports - flow-static.go","Mozilla Public License 2.0")
 }

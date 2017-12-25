@@ -86,7 +86,7 @@ var flowmode = "Static"
 
 // Start VM script
 var startvm = "MAIN"
-var startscript "Script/Main.lua"
+var startscript = "Script/Main.lua"
 
 
 var startvmscript = map[string]string{}

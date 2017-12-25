@@ -8,6 +8,9 @@
 	http://mozilla.org/MPL/2.0/.
         Version: 17.12.25
 */
+
+//
+package bubblegame
 import(
 	"github.com/Shopify/go-lua"
 	"trickyunits/mkl"
