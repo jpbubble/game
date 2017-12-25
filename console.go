@@ -6,7 +6,7 @@
 	Mozilla Public License, v. 2.0. If a copy of the MPL was not 
 	distributed with this file, You can obtain one at 
 	http://mozilla.org/MPL/2.0/.
-        Version: 17.12.24
+        Version: 17.12.25
 */
 package bubblegame
 
@@ -103,7 +103,7 @@ func lapi_CShow(l *lua.State) int {
 }
 
 func init(){
-mkl.Version("Bubble Game Engine - Imports - console.go","17.12.24")
+mkl.Version("Bubble Game Engine - Imports - console.go","17.12.25")
 mkl.Lic    ("Bubble Game Engine - Imports - console.go","Mozilla Public License 2.0")
 LuaReg("CWrite",lapi_Write)
 LuaReg("CWriteLn",lapi_WriteLn)

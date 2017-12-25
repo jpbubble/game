@@ -6,7 +6,7 @@
 	Mozilla Public License, v. 2.0. If a copy of the MPL was not 
 	distributed with this file, You can obtain one at 
 	http://mozilla.org/MPL/2.0/.
-        Version: 17.12.24
+        Version: 17.12.25
 */
 package bubblegame
 
@@ -26,7 +26,7 @@ import (
 	
 	
 func init(){
-mkl.Version("Bubble Game Engine - Imports - initstuff.go","17.12.24")
+mkl.Version("Bubble Game Engine - Imports - initstuff.go","17.12.25")
 mkl.Lic    ("Bubble Game Engine - Imports - initstuff.go","Mozilla Public License 2.0")
 }
 
@@ -137,4 +137,12 @@ func InitBubble(){
 	}
 	// Init flow specific apis now
 	gfxAPIinit()
+	// Start with script settings
+	if ini.C("START.VM")!=""     { startvm     = ini.C("START.VM") }
+	if ini.C("START.SCRIPT")!="" { startscript = ini.C("START.SCRIPT") }
+	if flowmode=="Static" && startvm!="MAIN" { bubble.Fatal("Multiscripting not supported in static mode. START.VM should therefore be defined as 'MAIN' only or not be defined at all") }
+	// Load the starting script
+	bubble.CreateBubble("startvm")
+	bubble.TextScript(startvm,startvmscript)
+	bubble.LoadScript(startvm,startscript)
 }

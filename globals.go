@@ -6,7 +6,7 @@
 	Mozilla Public License, v. 2.0. If a copy of the MPL was not 
 	distributed with this file, You can obtain one at 
 	http://mozilla.org/MPL/2.0/.
-        Version: 17.12.24
+        Version: 17.12.25
 */
 package bubblegame
 
@@ -37,7 +37,7 @@ var ini gini.TGINI
 
 
 func init(){
-mkl.Version("Bubble Game Engine - Imports - globals.go","17.12.24")
+mkl.Version("Bubble Game Engine - Imports - globals.go","17.12.25")
 mkl.Lic    ("Bubble Game Engine - Imports - globals.go","Mozilla Public License 2.0")
 bubcol["Red"]        = tbubcol{255,  0,  0}
 bubcol["Green"]      = tbubcol{  0,255,  0}
@@ -84,3 +84,9 @@ func Col(name string) (r,g,b uint8) {
 var flowmode = "Static"
 
 
+// Start VM script
+var startvm = "MAIN"
+var startscript "Script/Main.lua"
+
+
+var startvmscript = map[string]string{}

@@ -1,3 +1,13 @@
+/*
+        gfx.go
+	(c) 2017 Jeroen Petrus Broks.
+	
+	This Source Code Form is subject to the terms of the 
+	Mozilla Public License, v. 2.0. If a copy of the MPL was not 
+	distributed with this file, You can obtain one at 
+	http://mozilla.org/MPL/2.0/.
+        Version: 17.12.25
+*/
 // ---- //
 
 // This is just a lib meant to simplefy the usage of graphics in SDL.
@@ -160,6 +170,6 @@ func Color(r,g,b uint8) {
 }
 
 func init(){
-mkl.Version("","")
-mkl.Lic("","")
+mkl.Version("Bubble Game Engine - Imports - gfx.go","17.12.25")
+mkl.Lic    ("Bubble Game Engine - Imports - gfx.go","Mozilla Public License 2.0")
 }
