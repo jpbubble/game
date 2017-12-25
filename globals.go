@@ -6,7 +6,7 @@
 	Mozilla Public License, v. 2.0. If a copy of the MPL was not 
 	distributed with this file, You can obtain one at 
 	http://mozilla.org/MPL/2.0/.
-        Version: 17.12.25
+        Version: 17.12.26
 */
 package bubblegame
 
@@ -37,7 +37,7 @@ var ini gini.TGINI
 
 
 func init(){
-mkl.Version("Bubble Game Engine - Imports - globals.go","17.12.25")
+mkl.Version("Bubble Game Engine - Imports - globals.go","17.12.26")
 mkl.Lic    ("Bubble Game Engine - Imports - globals.go","Mozilla Public License 2.0")
 bubcol["Red"]        = tbubcol{255,  0,  0}
 bubcol["Green"]      = tbubcol{  0,255,  0}
@@ -92,6 +92,7 @@ var startscript = "Script/Main.lua"
 
 var startvmscript = map[string]string{}
 
+var timetick = int64(1)
 
 // Sysvars
 var endflow = false // Used in Cyclic and CallBack. Will end the flow as soon as this is set "true" by the script commands.
