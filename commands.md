@@ -14,10 +14,10 @@ lua uses).
 - When "target" is set this key will be of your choosing. Please note they are case sensitive. It will then return the same key by the way.
 - When using "target" on a key that already exists it will automatically be freed, so you don't need to free it first.
 
-### AssignImage(source,target,[autofreeoriginal=true])
+### AssignImage(source,target,[autofreeoriginal=1])
 
 - Will assign an image to a new target
-- Unless you specifically set autofreeoriginal to false the original will be freed
+- Unless you specifically set autofreeoriginal to 0 or any negative number the original will be freed
 - Please note, this function only copies pointers, not actual data.
 
 ### FreeImage(imgkey)
