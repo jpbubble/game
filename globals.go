@@ -82,6 +82,7 @@ func Col(name string) (r,g,b uint8) {
 
 // Flowmode
 var flowmode = "Static"
+var currentflow = "MAIN"
 
 
 // Start VM script
