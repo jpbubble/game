@@ -6,7 +6,7 @@
 	Mozilla Public License, v. 2.0. If a copy of the MPL was not 
 	distributed with this file, You can obtain one at 
 	http://mozilla.org/MPL/2.0/.
-        Version: 17.12.25
+        Version: 17.12.26
 */
 
 //
@@ -18,8 +18,8 @@ import (
 )
 
 func init(){
-	startvmscript["Static"] = "function bubble_init() end\n\nfunction bubble_main Crash(\"There is no bubble_main function in this script\")\nend"
-mkl.Version("Bubble Game Engine - Imports - flow-static.go","17.12.25")
+	startvmscript["Static"] = "function bubble_init() end\n\nfunction bubble_main() Crash(\"There is no bubble_main function in this script\")\nend"
+mkl.Version("Bubble Game Engine - Imports - flow-static.go","17.12.26")
 mkl.Lic    ("Bubble Game Engine - Imports - flow-static.go","Mozilla Public License 2.0")
 }
 

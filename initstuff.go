@@ -81,6 +81,7 @@ func pi_error(errormsg string){
 // but it must be named the same as the executable file running it with it's regular extension replaced with .jcr
 // Please note that on Mac this file must be located inside the application bundle's Resources folder (mac users expect this).
 func InitBubble(){
+	jcr6main.JCR6Crash=false
 	var err error
 	// Init the SDL routines
 	err = sdl.Init(sdl.INIT_EVERYTHING)
@@ -144,7 +145,7 @@ func InitBubble(){
 	if flowmode=="Static" && startvm!="MAIN" { bubble.Fatal("Multiscripting not supported in static mode. START.VM should therefore be defined as 'MAIN' only or not be defined at all") }
 	currentflow=startvm
 	// Load the starting script
-	bubble.CreateBubble("startvm")
+	bubble.CreateBubble(startvm)
 	bubble.TextScript(startvm,startvmscript[flowmode],"internal:"+flowmode)
 	bubble.LoadScript(startvm,startscript)
 }
