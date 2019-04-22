@@ -27,3 +27,7 @@ This stuff is still in development.
 Expect it to be buggy and unusable as long as this note is here.
 Stuff may appear and disappear randomly without deprecation notes.
 When this stuff is 'stable enough to use' I'll remove this notice. ;)
+
+# Note II
+
+In Go this project has been cancelled, but I will very likely replace it soon with a project with the same goal, but only written in a different language. Although it's not official yet, C# is a very likely candidate, although I am still exploring my possibilities here.
